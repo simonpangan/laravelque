@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Mail\WelcomeMail;
+Route::get('/mail', function () {
+    Mail::to('EmailAddress@EmailAddress.com')->send(new WelcomeMail()); 
+});
