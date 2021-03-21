@@ -21,3 +21,9 @@ use App\Mail\WelcomeMail;
 Route::get('/mail', function () {
     Mail::to('EmailAddress@EmailAddress.com')->send(new WelcomeMail()); 
 });
+
+use App\Jobs\SendEmail;
+use Illuminate\Support\Facades\Mail;
+Route::get('/sendmailjob', function () {
+    SendEmail::dispatch();
+});
